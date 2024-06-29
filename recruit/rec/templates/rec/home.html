@@ -1,0 +1,12 @@
+{% extends 'rec/base.html' %}
+
+{% load static %}
+{% block title %}Home - Recruitment Management System{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center bg-secondary text-white">
+    <h2 class="text-center">Welcome to the Recruitment Management System</h2>
+    <p class="lead">Manage all your recruitment needs in one place.</p>
+    <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Login</a>
+</div>
+{% endblock %}

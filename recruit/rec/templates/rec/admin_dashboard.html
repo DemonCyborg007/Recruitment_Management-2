@@ -1,0 +1,30 @@
+{% extends 'rec/base.html' %}
+{% load static %}
+
+{% block title %}Admin Dashboard - Recruitment Management System{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card bg-dark text-white">
+        <div class="card-header bg-primary">
+            <h2 class="text-center">Admin Dashboard</h2>
+        </div>
+        <div class="card-body">
+            <a href="{% url 'create_facilitator' %}" class="btn btn-primary">Create Facilitator</a>
+        </div>
+        <div class="card-body">
+            <h3 class="text-white">Facilitators</h3>
+            <ul class="list-group">
+                {% for facilitator in facilitators %}
+                <li class="list-group-item bg-dark text-white">{{ facilitator.username }} - {{ facilitator.email }}</li>
+                {% empty %}
+                <li class="list-group-item bg-dark text-white">No facilitators found.</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="card-footer bg-dark">
+            <a href="{% url 'logout' %}" class="btn btn-secondary">Logout</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

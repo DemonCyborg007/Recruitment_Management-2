@@ -1,0 +1,41 @@
+{% extends 'rec/base.html' %}
+{% load static %}
+
+{% block title %}Facilitator Dashboard - Recruitment Management System{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card bg-dark text-white">
+        <div class="card-header bg-primary">
+            <h2 class="text-center">Facilitator Dashboard</h2>
+        </div>
+        <div class="card-body">
+            <a href="{% url 'create_student' %}" class="btn btn-primary mb-3">Create Student</a>
+            <a href="{% url 'create_placement_drive' %}" class="btn btn-primary mb-3">Create Placement Drive</a>
+            <a href="{% url 'bulk_upload_students' %}" class="btn btn-primary mb-3">Bulk Upload Students</a>
+
+            <h3 class="text-white">Students</h3>
+            <ul class="list-group mb-3">
+                {% for student in students %}
+                <li class="list-group-item bg-dark text-white">
+                    {{ student.user.username }} - {{ student.email }} - {{ student.id }}
+                    <a href="{% url 'view_student_applications' student.id %}" class="btn btn-sm btn-info float-right">View Applications</a>
+                </li>
+                {% endfor %}
+            </ul>
+
+            <h3 class="text-white">Placement Drives</h3>
+            <ul class="list-group">
+                {% for drive in placement_drives %}
+                <li class="list-group-item bg-dark text-white">
+                    {{ drive.company_name }} - {{ drive.job_role }} on {{ drive.date }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="card-footer">
+            <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

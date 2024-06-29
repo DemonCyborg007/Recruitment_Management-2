@@ -1,0 +1,26 @@
+{% extends 'rec/base.html' %}
+{% load static %}
+
+{% block title %}Application History - Recruitment Management System{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card bg-dark text-white">
+        <div class="card-header bg-primary">
+            <h1 class="text-center">Application History</h1>
+        </div>
+        <di class="card-body">
+            <ul class="list-unstyled">
+                {% for application in applications %}
+                <li class="mb-3">
+                    Applied to <strong>{{ application.drive.company_name }}</strong> - {{ application.drive.job_role }} on {{ application.applied_at }}
+                </li>
+                {% empty %}
+                <li>No applications found.</li>
+                {% endfor %}
+            </ul>
+            <a href="{% url 'student_dashboard' %}" class="btn btn-primary mt-3">Back to Dashboard</a> 
+        </div>
+    </div>
+</div>
+{% endblock %}

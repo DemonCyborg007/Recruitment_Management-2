@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Recruitment Management System{% endblock %}</title>
+    {% load static %}
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'rec/css/bootstrap.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static 'rec/css/style.css' %}" rel="stylesheet">
+</head>
+<body class="bg-dark text-white">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">Recruitment Management System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="{% static 'rec/js/jquery.js' %}"></script>
+    <script src="{% static 'rec/js/popper.js' %}"></script>
+    <script src="{% static 'rec/js/bootstrap.js' %}"></script>
+</body>
+</html>
