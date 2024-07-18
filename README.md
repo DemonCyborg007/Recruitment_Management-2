@@ -7,7 +7,8 @@ To run the project simply create a super-user and then run the manage.py file wi
 5. log out and log in as facilitators
 6. create student ids
 7. create placement drives
-8. log in as student to access and apply to placement drives
+8. log in as student to access and apply to placement drives<br>
+
 Here we need to create a superuser(admin) from which we can create facilitators 
 Facilitators will Manage the Students and also the placement related queries
 This one contains bootstrap designings
